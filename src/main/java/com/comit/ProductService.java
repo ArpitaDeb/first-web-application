@@ -8,7 +8,7 @@ public class ProductService {
 	{
 		List<Product> products = new ArrayList<Product>();
 
-		products.add(new Product("Apple", 1.00, "Really good in pies."));
+		products.add(new Product("Apple", 1.99, "Really good in pies."));
 		products.add(new Product("Banana", 1.50, "Easy to peel."));
 		products.add(new Product("Orange", 2.00, "Named after the color."));
 		products.add(new Product("Grape", 4.75,"Seedless!"));
