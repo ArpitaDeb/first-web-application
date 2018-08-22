@@ -18,4 +18,17 @@ public class ProductsServlet extends HttpServlet {
 		request.setAttribute("products", productService.getProducts());
 		request.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(request, response);
 	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		String name = request.getParameter("name");
+		double price = Double.parseDouble(request.getParameter("price"));
+		String description = request.getParameter("description");
+		
+		Product newProduct = new Product(name, price, description);
+		productService.insertProduct(newProduct);
+		
+		request.setAttribute("products", productService.getProducts());
+		request.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(request, response);	
+	}
 }
