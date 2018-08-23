@@ -22,11 +22,12 @@ public class LoginServlet extends HttpServlet {
 
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		
 		boolean isUserValid = userValidationService.isUserValid(username, password);
 		
 		if (isUserValid) {
-			response.sendRedirect("/home");
+			User user = userValidationService.getUser(username);
+			request.getSession().setAttribute("user", user);
+			response.sendRedirect("/app/home");
 		}
 		else {
 			request.setAttribute("errorMessage", "Invalid Credentials");

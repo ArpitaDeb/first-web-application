@@ -88,14 +88,15 @@ public class ProductService {
 	{
         Connection connection = Database.getConnection();
 
-        String sql = "UPDATE INTO products VALUES (?, ?, ?, ?)";
+        String sql = "UPDATE products SET (name = ?, price = ?, description = ?) WHERE id = ?";
 
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
 
-            statement.setString(2, product.getName());
-            statement.setDouble(1, product.getPrice());
-            statement.setString(1, product.getDescription());
+            statement.setString(1, product.getName());
+            statement.setDouble(2, product.getPrice());
+            statement.setString(3, product.getDescription());
+            statement.setInt(4, product.getId());
             
             statement.execute();
 

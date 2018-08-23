@@ -19,7 +19,7 @@ public class Database {
 
             try {
                 connection = DriverManager.getConnection(
-                        "jdbc:mysql://localhost:3306/[databasename]",
+                        "jdbc:mysql://localhost:3306/[database]",
                         "root",
                         "[password]"
                 );
